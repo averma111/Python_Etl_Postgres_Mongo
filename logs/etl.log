@@ -1,0 +1,15 @@
+main.py: 2021-10-03 14:56:48,053 Starting the data pipeline
+main.py: 2021-10-03 14:56:48,054 Initializing the postgres connection
+main.py: 2021-10-03 14:56:48,060 Postgres connection completed
+main.py: 2021-10-03 14:56:48,060 Starting the data stage 1: Extracting data from postgresql
+main.py: 2021-10-03 14:56:48,363 Stage 1 completed! Data successfully extracted from MySQL
+main.py: 2021-10-03 14:56:48,363 Starting data pipeline stage 2: Transforming data from MySQL for MongoDB
+main.py: 2021-10-03 14:56:48,363 Transforming genres dataset
+main.py: 2021-10-03 14:56:48,821 Starting connection to mongodb
+main.py: 2021-10-03 14:56:48,823 MongoDB connection Completed
+main.py: 2021-10-03 14:56:48,823 Starting data pipeline stage 3: Loading data into MongoDB
+main.py: 2021-10-03 14:56:55,681 Successfully loaded employees
+main.py: 2021-10-03 14:56:55,681 Stage 3 completed! Data successfully loaded
+main.py: 2021-10-03 14:56:55,681 Closing Postgres connection
+main.py: 2021-10-03 14:56:55,681 Postgresql connection closed successfully
+main.py: 2021-10-03 14:56:55,681 Ending data pipeline
