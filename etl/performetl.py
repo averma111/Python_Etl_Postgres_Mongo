@@ -31,5 +31,4 @@ class Performetl:
     def load_mongo_data(self, mongo_collection, dataset_collection):
         if RESET_MONGO_COLLECTIONS_ON_UPDATE:
             mongo_collection.delete_many({})
-
         return mongo_collection.insert_many(dataset_collection)
