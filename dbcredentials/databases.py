@@ -3,14 +3,16 @@ from pymongo import MongoClient
 import psycopg2
 import configparser
 import sys
-import logging
+import logging.config
 
 config = configparser.ConfigParser()
 config.read('config/config.ini')
 
-logger = logging.getLogger()
-logging.basicConfig(filename="logs/etl.log", format='%(filename)s: %(asctime)s %(message)s', filemode='w')
-logger.setLevel(logging.INFO)
+logging.config.fileConfig(fname='logs/logs.ini', disable_existing_loggers=False)
+
+# Get the logger specified in the file
+logger = logging.getLogger(__name__)
+
 
 class Database:
 
@@ -24,9 +26,8 @@ class Database:
                 database=config['postgresql']['PG_DATABASE']
             )
         except psycopg2.OperationalError as err:
-            logging.error('Error connecting to postgresql database')
+            logger.error('Error connecting to postgresql database')
             print_psycopg2_exception(err)
-            return None
 
     def initialize_mongodb(self):
         return MongoClient(config['mongodb']['MONGO_HOST'],
@@ -36,8 +37,8 @@ class Database:
 def print_psycopg2_exception(err):
     err_type, err_obj, traceback = sys.exc_info()
     line_num = traceback.tb_lineno
-    logging.error("\npsycopg2 ERROR:", err, "on line number:", line_num)
-    logging.error("psycopg2 traceback:", traceback, "-- type:", err_type)
-    logging.error("\nextensions.Diagnostics:", err.diag)
-    logging.error("pgerror:", err.pgerror)
-    logging.error("pgcode:", err.pgcode, "\n")
+    logger.error("\npsycopg2 ERROR:", err, "on line number:", line_num)
+    logger.error("psycopg2 traceback:", traceback, "-- type:", err_type)
+    logger.error("\nextensions.Diagnostics:", err.diag)
+    logger.error("pgerror:", err.pgerror)
+    logger.error("pgcode:", err.pgcode, "\n")

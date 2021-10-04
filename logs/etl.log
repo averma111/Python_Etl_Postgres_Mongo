@@ -1,5 +1,0 @@
-main.py: 2021-10-03 15:06:44,784 Starting the data pipeline
-main.py: 2021-10-03 15:06:44,784 Initializing the postgres connection
-databases.py: 2021-10-03 15:06:44,784 Error connecting to postgresql database
-main.py: 2021-10-03 15:06:44,789 Postgres connection completed
-main.py: 2021-10-03 15:06:44,789 Starting the data stage 1: Extracting data from postgresql
