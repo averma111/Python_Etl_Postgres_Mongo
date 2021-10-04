@@ -1,7 +1,6 @@
 # Importing internal dependenciesS
 from dbcredentials import databases
 from etl import performetl
-import logging
 import logging.config
 
 # Pipeline constants
@@ -12,11 +11,6 @@ logging.config.fileConfig(fname='logs/logs.ini', disable_existing_loggers=False)
 
 # Get the logger specified in the file
 logger = logging.getLogger(__name__)
-
-
-# logger = logging.getLogger()
-# logging.basicConfig(filename="etl.logs", format='%(filename)s: %(asctime)s %(message)s', filemode='w')
-# logger.setLevel(logging.INFO)
 
 
 def main():
